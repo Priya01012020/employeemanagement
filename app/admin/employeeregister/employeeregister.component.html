@@ -1,0 +1,130 @@
+  <mat-card  class="example-card">
+    <mat-horizontal-stepper [linear]="isLinear" #stepper>
+      <mat-step [stepControl]="firstFormGroup" label="Personal details">
+        <form [formGroup]="firstFormGroup">
+          
+          <mat-card-content>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Name"  formControlName="name">
+            </mat-form-field>
+          </mat-card-content>
+          <mat-card-content><h4>GENDER</h4>
+            <mat-radio-group aria-label="Select an option" #gender formControlName="gender" required>
+              <mat-radio-button value="male">MALE</mat-radio-button>&nbsp;&nbsp;&nbsp;
+              <mat-radio-button value="female">FEMALE</mat-radio-button>
+            </mat-radio-group>
+          </mat-card-content>
+          <mat-card-content>
+            <mat-form-field>
+              <input matInput [matDatepicker]="myDatepicker" placeholder="Date Of Birth" formControlName="dob">
+              <mat-datepicker-toggle matSuffix  [for]="myDatepicker">
+              </mat-datepicker-toggle>
+              <mat-datepicker #myDatepicker></mat-datepicker>
+            </mat-form-field>
+          </mat-card-content>
+          <mat-card-content>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Address" #address formControlName="address">
+            </mat-form-field>
+          </mat-card-content>  
+          <div style="text-align:right">    
+            <button mat-button class="button" matStepperNext>Next</button></div>   
+           </form>
+      </mat-step>
+       <mat-step [stepControl]="secondFormGroup" label="Contact details"> 
+        <form [formGroup]="secondFormGroup">
+          
+          <mat-card-content>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Mail Id" #mailid formControlName="mail">
+            </mat-form-field>
+          </mat-card-content>
+          <mat-card-content>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Mobile" #mobile formControlName="mobile">
+            </mat-form-field>
+          </mat-card-content>
+          <div style="text-align:left"><button mat-button class="button" matStepperPrevious>Back</button> </div>   
+          <div style="text-align:right"> <button mat-button class="button" matStepperNext>Next</button> </div>   
+          </form>
+      </mat-step>
+      
+      
+      <mat-step label=" Qualification ">
+        <form [formGroup]="qualification">
+          <br>
+          <p></p>
+
+          <!-- Course Auto Complete Field -->
+          <mat-form-field class="example-full-width">
+            <input type="text" placeholder="Course" aria-label="Number" matInput [matAutocomplete]="auto" formControlName="course">
+            <mat-autocomplete #auto="matAutocomplete" (optionSelected)='display1($event.option.value)'>
+              <mat-option *ngFor="let option of options;" [value]="option">
+                {{option}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field> <br/>
+          <mat-form-field class="example-full-width">
+            <input type="text" placeholder="Major" aria-label="Number" matInput [matAutocomplete]="maj" formControlName="major">
+            <mat-autocomplete #maj="matAutocomplete">
+              <mat-option *ngFor="let major of majors" [value]="major">
+                {{major}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field><br />
+          <mat-form-field>
+            <input placeholder="Experience" matInput formControlName="experience">
+          </mat-form-field>
+          <div style="text-align:left"><button mat-button class="button" matStepperPrevious>Back</button></div>
+          <div style="text-align:right"> <button mat-button #button matStepperNext>Next</button></div>
+         </form>
+      </mat-step>
+      <mat-step [stepControl]="fourthFormGroup" label="Role">
+        <form [formGroup]="fourthFormGroup">
+          
+          <mat-card-content>
+          <mat-form-field class="example-full-width">
+            <mat-label>Role</mat-label>
+            <select matNativeControl required formControlName="role">
+              <option value="tl">Team leader</option>
+              <option value="manager">Manager</option>
+              <option value="employee">Employee</option>
+            </select>
+          </mat-form-field>
+          </mat-card-content>
+          <div style="text-align:left"><button mat-button #button matStepperPrevious>Back</button></div>
+          <div style="text-align:right"><button mat-button #button matStepperNext>Next</button>  </div>            
+        </form>
+        </mat-step>
+        <mat-step [stepControl]="fifthFormGroup" label="Login details">
+          <form [formGroup]="fifthFormGroup">
+            
+            <mat-card-content>
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Username" #uname formControlName="uname">
+            </mat-form-field><br />
+            <mat-form-field class="example-full-width">
+              <input type="password" matInput placeholder="Password" #pwd formControlName="pwd">
+            </mat-form-field>
+            </mat-card-content>
+            <div style="text-align:left"><button mat-button #button matStepperPrevious>Back</button></div>
+            <div style="text-align:right"><button mat-button #button matStepperNext>Next</button>  </div>            
+          </form>
+          </mat-step>
+        <mat-step [stepControl]="sixthFormGroup" label="Status">
+          <form [formGroup]="sixthFormGroup">            
+            <mat-card-content>
+              <mat-slide-toggle formControlName="status">Is Active?</mat-slide-toggle>
+            </mat-card-content>
+            
+            <div style="text-align:left"><button mat-button #button matStepperPrevious>Back</button></div>
+            <mat-card-actions>
+              <div style="text-align:center">
+            <button mat-raised-button color="primary" #button (click)="stepper.reset()">Reset</button>               
+            <button mat-raised-button color="primary" (click)="insert()">Register</button></div>
+            </mat-card-actions>
+          </form>
+          </mat-step>
+      </mat-horizontal-stepper>
+    </mat-card>
+      

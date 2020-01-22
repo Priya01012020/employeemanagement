@@ -1,0 +1,19 @@
+    mat-grid-list
+    {
+        margin:150px;
+    }
+    .emp
+    {
+        background-color:light-grey;
+        border-left: none;
+        border-right: none;
+        width: 200px;
+        height: 200px;
+        font-size: large;
+    }
+    .mat-button-focus-overlay {
+        background-color:blue;
+    }
+    .mat-menu-item:hover {
+        background-color:blue;
+   }

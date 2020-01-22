@@ -1,0 +1,23 @@
+<mat-card>
+    <form [formGroup]="firstFormGroup">
+    <!-- <mat-card-content>
+        <mat-form-field>       
+          <input matInput placeholder="Project Id"  formControlName="id">  
+        </mat-form-field>      
+      </mat-card-content><br /> -->
+      <mat-card-content>  
+          <mat-form-field>
+        <input matInput placeholder="Project Name"  formControlName="name">     
+    </mat-form-field>        
+    </mat-card-content><br />
+    <mat-card-content>    
+    <mat-form-field>
+        <textarea matInput placeholder="Project Description" formControlName="description"></textarea>
+      </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>Create</button>
+        </mat-card-actions>
+    </form>
+</mat-card>
+

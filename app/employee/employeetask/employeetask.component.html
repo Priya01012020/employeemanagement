@@ -1,0 +1,18 @@
+<form [formGroup]="firstFormGroup">
+
+
+<mat-card-content>
+  <mat-label>Click below button to know the task today</mat-label><br /><br />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button mat-raised-button (click)="displayTask()">Task</button>
+</mat-card-content>
+<br /><br /><br /><br />
+<mat-card-content> 
+  <mat-label>Task status</mat-label>
+  <select matNativeControl required formControlName="status">
+    <option value="start">To be started</option>
+    <option value="finish">Finished</option>
+    <option value="active">Active</option>
+    <option value="pending">Pending</option>
+  </select>
+</mat-card-content>
+</form>

@@ -1,0 +1,47 @@
+.logo
+{
+    float:left;
+    height: 80px;
+    width:80px;
+}
+.address{
+    float:right;
+    height: 80px;
+    width:200px;
+}
+.building
+{
+    height: 400px;
+    width:1150px;
+    float: right;
+}
+.flexcontainer {
+    display: flex;
+    
+    flex-direction: column;
+  }
+  .flexcontainer >div{
+    background-color:black;
+    align-content: center;
+   white-space: normal;
+   padding:8;
+    font-size: 40px;
+    border-spacing:10;
+  }
+  .domain
+  {
+      font-size:5 px;
+      padding:83;
+  }
+  p{
+      text-align: center;
+      font-size: large;
+  }
+
+
+
+
+
+
+
+
